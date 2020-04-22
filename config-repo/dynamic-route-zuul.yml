@@ -1,5 +1,1 @@
-zuul:
-  routes:
-    service-provider:
-      path: /service/**
-      serviceId: eureka-service
+from: stable-environment-6.0
