@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: JstMealApp_Service
+    name: configclient
   cloud:
     consul:
       host: 172.21.101.85
