@@ -34,3 +34,8 @@ spring:
         prefer-ip-address: true
         #健康检查失败多长时间取消注册
         health-check-critical-timeout: 30s  
+management:
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh 
