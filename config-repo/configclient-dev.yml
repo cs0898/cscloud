@@ -10,6 +10,9 @@ spring:
     username: rabbitmqroot
     password: cs0898
   cloud:
+    bus:
+      trace: 
+        enabled: true
     consul:
       host: 172.21.101.85
       port: 8500
