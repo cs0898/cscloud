@@ -11,6 +11,7 @@ spring:
     password: cs0898
   cloud:
     bus:
+      enabled: true
       trace: 
         enabled: true
     consul:
