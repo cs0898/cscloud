@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: configclient
+  rabbitmq:
+    host: 172.21.101.86
+    port: 5672
+    username: rabbitmqroot
+    password: cs0898
   cloud:
     consul:
       host: 172.21.101.85
