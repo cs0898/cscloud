@@ -1,5 +1,4 @@
 spring:
-  profiles: dev
   cloud:
     bus:
       trace:
@@ -8,7 +7,7 @@ spring:
     consul:
       host: 172.21.101.85                                   #当前环境Consul的IP地址
       port: 8500                                          #当前环境Consul的端口号
-      enabled: true                                   #是否启用Consul
+      #enabled: true                                   #是否启用Consul
       discovery:               
         enabled: true                                 #启用Consul服务发现        
         service-name: ${spring.application.name}
