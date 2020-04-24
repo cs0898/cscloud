@@ -1,5 +1,5 @@
 server:
-  port: 8001    #configclient
+  port: 8008    #prod port
   
 spring:
   application:
