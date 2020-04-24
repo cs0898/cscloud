@@ -1,0 +1,27 @@
+spring:
+  profiles: dev
+  cloud:
+    bus:
+      trace:
+        enabled: true                                  #spring cloud bus 跟踪总线事件
+    #服务发现配置  consul
+    consul:
+      host: 172.21.101.85                                   #当前环境Consul的IP地址
+      port: 8500                                          #当前环境Consul的端口号
+      enabled: true                                   #是否启用Consul
+      discovery:               
+        enabled: true                                 #启用Consul服务发现
+        tags: protocol_config
+        service-name: config-server                   #该配置服务在Consul中的服务名称
+        instance-id: config-server                    #该配置服务在Consul中的实例名称
+        hostname: 172.21.101.85                            #该配置服务的服务发现地址与consul.host一致
+        port: ${server.port}        
+        health-check-interval: 10s                        #Consul健康检查时间间隔
+        health-check-url: http://172.21.101.85:8500/health  #Consul健康检查地址，端口与server.port保持一致
+        heartbeat:                                        #是否启用Consul的心跳检测
+          enabled: true
+  rabbitmq:
+      host: 172.21.101.86                                   #spring cloud bus基于AMQP实现所以需要配置，此处以Rabbitmq 为例
+      port: 5672
+      username: rabbitmqroot
+      password: cs0898
