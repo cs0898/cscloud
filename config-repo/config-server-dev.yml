@@ -10,14 +10,22 @@ spring:
       port: 8500                                          #当前环境Consul的端口号
       enabled: true                                   #是否启用Consul
       discovery:               
-        enabled: true                                 #启用Consul服务发现
-        tags: protocol_config
-        service-name: config-server                   #该配置服务在Consul中的服务名称
-        instance-id: config-server                    #该配置服务在Consul中的实例名称
-        hostname: 172.21.101.85                            #该配置服务的服务发现地址与consul.host一致
-        port: ${server.port}        
-        health-check-interval: 10s                        #Consul健康检查时间间隔
-        health-check-url: http://172.21.101.85:8500/health  #Consul健康检查地址，端口与server.port保持一致
+        enabled: true                                 #启用Consul服务发现        
+        service-name: ${spring.application.name}
+        #配置健康检查路径
+        health-check-path: /health
+        #配置健康检查时间间隔
+        health-check-interval: 15s
+        #配置实例id  myconsul${random.uuid}
+        instance-id: ${spring.application.name}:${random.uuid}
+        #配置服务注册
+        register: true
+        #服务停止时取消注册，http://www.imooc.com/article/286883?block_id=tuijian_wz
+        deregister: true
+        #表示注册时使用ip而不是hostname
+        prefer-ip-address: true
+        #健康检查失败多长时间取消注册
+        health-check-critical-timeout: 30s  
         heartbeat:                                        #是否启用Consul的心跳检测
           enabled: true
   rabbitmq:
